@@ -5,7 +5,7 @@
 
 <mapper namespace="com.jigoo.mapper.PostMapper">
 	<select id="getAllPost" resultType="com.jigoo.domain.PostVO">
-		SELECT * FROM post
+		SELECT * FROM post ORDER BY idx DESC
 	</select>
 	
 	<insert id="createPost">

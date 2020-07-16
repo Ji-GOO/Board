@@ -20,9 +20,11 @@ public class PostController {
 	private PostService service;
 	
 	@GetMapping("list")
-	public void listPost(Model model) {
+	public String listPost(Model model) {
 		
 		model.addAttribute("post", service.getAllPost());
+		
+		return "board/list";
 	}
 
 	@GetMapping("create")
@@ -31,7 +33,7 @@ public class PostController {
 		return "board/create";
 	}
 	
-	@PostMapping("post_create")
+	@PostMapping("postcreate")
 	public String createPost(PostVO post, RedirectAttributes rttr) {
 		
 		service.createPost(post);
@@ -42,9 +44,11 @@ public class PostController {
 	}
 	
 	@GetMapping("get")
-	public void getPost(@RequestParam("idx") Long idx, Model model) {
+	public String getPost(@RequestParam("idx") Long idx, Model model) {
 		
 		model.addAttribute("post", service.getOnePost(idx));
+		
+		return "board/get";
 	}
 	
 	@PostMapping("modify")
