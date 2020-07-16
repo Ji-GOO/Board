@@ -1,12 +1,17 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
-<html>
-<head>
-	<title>Home</title>
-</head>
-<body>
-	<h1>
-		Hello world!  
-	</h1>
-</body>
-</html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ include file="../views/includes/header.jsp" %>
+
+	<div class="container">
+		<div class="row">
+			<h1>로그인</h1>
+			<form action="/login" method="post">
+				아이디 : <input type="text" name="userid" maxlength="10"><br>
+				비밀번호 : <input type="password" name="password" maxlength="10">
+				<input type="submit" value="로그인">
+			</form>
+		</div>
+	</div>
+	
+<%@ include file="../views/includes/footer.jsp" %>
