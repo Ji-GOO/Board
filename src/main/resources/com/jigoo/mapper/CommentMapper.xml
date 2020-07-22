@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jigoo.mapper.CommentMapper">
+	<insert id="createComment">
+		<selectKey keyProperty="id" order="BEFORE" resultType="long">
+			SELECT
+				MAX(id)+1
+					FROM comment
+		</selectKey>
+		INSERT INTO
+			comment(post_id, content, username)
+				VALUES(#{post_id}, #{content}, #{username})
+	</insert>
+	
+	<select id="readComment" resultType="com.jigoo.domain.CommentVO">
+		SELECT id, post_id, content, username, create_date, modify_date
+			FROM comment
+				WHERE id = #{id}
+	</select>
+	
+	<delete id="deleteComment">
+		DELETE FROM
+			comment
+				WHERE id = #{id}
+	</delete>
+	
+	<update id="updateComment">
+		UPDATE comment SET
+			content = #{content}
+				WHERE id = #{id}
+	</update>
+</mapper>
