@@ -2,11 +2,13 @@ package com.jigoo.service;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.jigoo.domain.Paging;
 import com.jigoo.domain.PostVO;
 
 import lombok.extern.log4j.Log4j;
@@ -40,10 +42,10 @@ public class PostServiceTest {
 		log.info("CREATE POST NUMBER : " + post.getIdx());
 	}
 	
-	//@Test
+	@Test
 	public void testGetAllPost() {
 		
-		service.getAllPost().forEach(post -> log.info(post));
+		service.getAllPost(new Paging(2, 10)).forEach(post -> log.info(post));
 	}
 	
 	//@Test

@@ -37,7 +37,7 @@
 								</div>
 								
 								<button type="submit" class="btn btn-default">등록</button>
-								<button type="button" onclick="location.href='/board/list'" class="btn btn-default">취소</button>
+								<button type="button" class="btn btn-info" onclick="location.href='/board/list'">취소</button>
 							</form>
 							
 						</div>

@@ -73,7 +73,7 @@ public class PostControllerTest {
 		log.info(resultPage);
 	}
 	
-	@Test
+	//@Test
 	public void testDeletePost() throws Exception {
 		
 		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/delete")
@@ -81,5 +81,14 @@ public class PostControllerTest {
 				.andReturn().getModelAndView().getViewName();
 		
 		log.info(resultPage);
+	}
+	
+	@Test
+	public void getPostListPaging() throws Exception {
+		
+		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/board/list")
+				.param("pageNumber", "2")
+				.param("amount", "10"))
+				.andReturn().getModelAndView().getModelMap());
 	}
 }

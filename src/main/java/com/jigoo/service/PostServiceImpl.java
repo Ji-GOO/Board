@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jigoo.domain.Paging;
 import com.jigoo.domain.PostVO;
 import com.jigoo.mapper.PostMapper;
 
@@ -18,9 +19,15 @@ public class PostServiceImpl implements PostService {
 	private PostMapper mapper;
 	
 	@Override
-	public List<PostVO> getAllPost() {
+	public List<PostVO> getAllPost(Paging paging) {
 		
-		return mapper.getAllPost();
+		return mapper.getPostPaging(paging);
+	}
+	
+	@Override
+	public int getTotalCount(Paging paging) {
+		
+		return mapper.getTotalCount(paging);
 	}
 
 	@Override

@@ -5,25 +5,56 @@
 
 <mapper namespace="com.jigoo.mapper.PostMapper">
 	<select id="getAllPost" resultType="com.jigoo.domain.PostVO">
-		SELECT * FROM post ORDER BY idx DESC
+		SELECT
+			idx, title, content, username, create_date, modify_date
+				FROM post
+					ORDER BY idx DESC
 	</select>
 	
 	<insert id="createPost">
 		<selectKey keyProperty="idx" order="BEFORE" resultType="long">
-			SELECT MAX(idx)+1 FROM post
+			SELECT
+				MAX(idx)+1
+					FROM post
 		</selectKey>
-		INSERT INTO post(title, content, username) VALUES(#{title}, #{content}, #{username})
+		INSERT INTO
+			post(title, content, username)
+				VALUES(#{title}, #{content}, #{username})
 	</insert>
 	
 	<select id="getOnePost" resultType="com.jigoo.domain.PostVO">
-		SELECT * FROM post WHERE idx = #{idx}
+		SELECT
+			idx, title, content, username, create_date, modify_date
+				FROM post
+					WHERE idx = #{idx}
 	</select>
 	
 	<delete id="deletePost">
-		DELETE FROM post WHERE idx = #{idx}
+		DELETE
+			FROM post
+				WHERE idx = #{idx}
 	</delete>
 	
 	<update id="modifyPost">
-		UPDATE post SET title = #{title}, content = #{content}
+		UPDATE
+			post
+				SET title = #{title}, content = #{content}
+					WHERE idx = #{idx}
 	</update>
+	
+	<select id="getPostPaging" resultType="com.jigoo.domain.PostVO">
+		<![CDATA[
+		SELECT
+			idx, title, content, username, create_date, modify_date
+				FROM post
+					ORDER BY idx DESC
+						LIMIT #{pageNumber}, #{amount}
+		]]>
+	</select>
+	
+	<select id="getTotalCount" resultType="int">
+		SELECT
+			COUNT(*)
+				FROM post
+	</select>
 </mapper>
