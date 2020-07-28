@@ -2,7 +2,6 @@ package com.jigoo.mapper;
 
 import java.util.stream.IntStream;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -59,7 +58,7 @@ public class CommentMapperTest {
 		mapper.deleteComment(id);
 	}
 	
-	@Test
+	//@Test
 	public void testUpdateComment() {
 		
 		Long id = 5L;
