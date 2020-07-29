@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <%@ include file="../includes/header.jsp" %>
 
@@ -36,8 +37,10 @@
                                 		<td><c:out value="${post.idx}" /></td>
                                 		<td><a class="move" href='<c:out value="${post.idx}" />'><c:out value="${post.title}" /></a></td>
                                 		<td><c:out value="${post.username}" /></td>
-                                		<td><c:out value="${post.create_date}" /></td>
-                                		<td><c:out value="${post.modify_date}" /></td>
+                                		<td><fmt:parseDate value="${post.create_date}" var="create_date" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                			<fmt:formatDate value="${create_date}" pattern="yyyy-MM-dd"/></td>
+                                		<td><fmt:parseDate value="${post.modify_date}" var="modify_date" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                			<fmt:formatDate value="${modify_date}" pattern="yyyy-MM-dd"/></td>
                                 	</tr>
                                 </tbody>
                                 </c:forEach>

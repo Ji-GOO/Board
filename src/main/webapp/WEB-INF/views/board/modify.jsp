@@ -46,7 +46,7 @@
 								
 								<div class="form-group">
 									<label>작성일</label>
-									<input class="form-control" name="create_date" value='<c:out value="${post.create_date}"/>' readonly="readonly">
+									<input class="form-control" name="create_date" value='작성시간 : <c:out value="${post.create_date}"/> / 수정시간 : <c:out value="${post.modify_date}"/>' readonly="readonly">
 								</div>
 								
 								<button type="submit" data-oper="modify" class="btn btn-default">수정</button>
