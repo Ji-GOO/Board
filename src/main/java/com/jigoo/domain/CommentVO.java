@@ -1,7 +1,5 @@
 package com.jigoo.domain;
 
-import java.sql.Date;
-
 import lombok.Data;
 
 @Data
@@ -15,7 +13,7 @@ public class CommentVO {
 	
 	private String username;
 	
-	private Date create_date;
+	private String create_date;
 	
-	private Date modify_date;
+	private String modify_date;
 }

@@ -32,4 +32,11 @@
 			content = #{content}
 				WHERE id = #{id}
 	</update>
+	
+	<select id="getListWithPaging" resultType="com.jigoo.domain.CommentVO">
+		SELECT id, post_id, content, username, create_date, modify_date
+			FROM comment
+				WHERE post_id = #{post_id}
+					ORDER BY id ASC
+	</select>
 </mapper>

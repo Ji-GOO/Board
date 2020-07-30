@@ -1,13 +1,16 @@
 package com.jigoo.mapper;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.jigoo.domain.CommentVO;
+import com.jigoo.domain.Paging;
 
 import lombok.extern.log4j.Log4j;
 
@@ -69,5 +72,15 @@ public class CommentMapperTest {
 		int count = mapper.updateComment(comment);
 		
 		log.info("UPDATE COUNT : " + count);
+	}
+	
+	@Test
+	public void testListComment() {
+		
+		Paging paging = new Paging();
+		
+		List<CommentVO> comments = mapper.getListWithPaging(paging, postIdArr[0]);
+		
+		comments.forEach(comment -> log.info(comment));
 	}
 }
