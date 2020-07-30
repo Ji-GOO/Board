@@ -9,10 +9,7 @@ import com.jigoo.domain.Paging;
 import com.jigoo.domain.PostVO;
 import com.jigoo.mapper.PostMapper;
 
-import lombok.AllArgsConstructor;
-
 @Service
-@AllArgsConstructor
 public class PostServiceImpl implements PostService {
 
 	@Autowired
