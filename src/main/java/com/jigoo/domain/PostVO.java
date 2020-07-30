@@ -1,7 +1,5 @@
 package com.jigoo.domain;
 
-import java.sql.Date;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,7 +17,7 @@ public class PostVO {
 	
 	private String username;
 	
-	private Date create_date;
+	private String create_date;
 	
-	private Date modify_date;
+	private String modify_date;
 }
