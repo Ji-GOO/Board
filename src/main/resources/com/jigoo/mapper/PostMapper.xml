@@ -48,7 +48,7 @@
 			idx, title, content, username, create_date, modify_date
 				FROM post
 					ORDER BY idx DESC
-						LIMIT #{pageNumber}, #{amount}
+						LIMIT #{firstPage}, #{amount}
 		]]>
 	</select>
 	
